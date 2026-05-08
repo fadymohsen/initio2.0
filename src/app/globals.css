@@ -1,0 +1,169 @@
+@import "tailwindcss";
+
+@theme {
+  --color-primary: #010f24;
+  --color-accent: #71b8e3;
+  --color-secondary: #2d64ae;
+  --color-neutral: #596a72;
+  --color-light: #d4d4d4;
+
+  --font-heading: var(--font-eb-garamond), serif;
+  --font-body: var(--font-montserrat), sans-serif;
+  --font-serif: var(--font-eb-garamond), ui-serif, Georgia, serif;
+  --font-sans: var(--font-montserrat), ui-sans-serif, system-ui, sans-serif;
+
+  --ease-premium: cubic-bezier(0.76, 0, 0.24, 1);
+}
+
+@layer base {
+  :root {
+    --primary: #010f24;
+    --accent: #71b8e3;
+    --secondary: #2d64ae;
+    --neutral: #596a72;
+    --light: #d4d4d4;
+    
+    --background: var(--primary);
+    --foreground: var(--light);
+  }
+
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+
+  html,
+  body {
+    height: 100%;
+    width: 100%;
+    background-color: var(--background);
+    color: var(--foreground);
+    font-family: var(--font-body);
+    overflow-x: hidden;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-heading);
+    line-height: 1.1;
+    font-weight: 500;
+  }
+
+  /* Force scroll visibility and override environmental locks */
+  body, html {
+    height: auto !important;
+    min-height: 100vh;
+  }
+}
+
+@layer utilities {
+  /* Hide default cursor on all devices to show only custom cursor */
+  * {
+    cursor: none;
+  }
+
+  /* Restore cursor inside the admin panel */
+  .admin-panel,
+  .admin-panel * {
+    cursor: auto !important;
+  }
+  .admin-panel button,
+  .admin-panel a,
+  .admin-panel select,
+  .admin-panel input,
+  .admin-panel textarea,
+  .admin-panel [role="button"] {
+    cursor: pointer !important;
+  }
+  
+  .admin-panel input[type="text"],
+  .admin-panel input[type="url"],
+  .admin-panel textarea {
+    cursor: text !important;
+  }
+
+  /* Override brutalist headings in admin panel */
+  .admin-panel h1,
+  .admin-panel h2,
+  .admin-panel h3,
+  .admin-panel h4,
+  .admin-panel h5,
+  .admin-panel h6 {
+    font-family: var(--font-sans);
+  }
+
+  .text-clamp-heading {
+    font-size: clamp(3rem, 10vw, 12rem);
+    letter-spacing: -0.02em;
+  }
+
+  .text-clamp-subheading {
+    font-size: clamp(1.5rem, 4vw, 4rem);
+  }
+
+  .text-clamp-body {
+    font-size: clamp(1rem, 1.2vw, 1.25rem);
+  }
+
+  .antigravity-scroll-lock {
+    overflow: visible !important;
+    pointer-events: auto !important;
+  }
+}
+
+/* Partners marquee */
+@keyframes marquee {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-50%); }
+}
+
+/* Custom Scrollbar for Lenis compatibility */
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--primary);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--neutral);
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--accent);
+}
+
+/* ── Floating WhatsApp Button ── */
+.whatsapp-float {
+  position: fixed;
+  bottom: 32px;
+  right: 32px;
+  z-index: 9999;
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  background: #25d366;
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 24px rgba(37, 211, 102, 0.4);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  cursor: pointer !important;
+}
+
+.whatsapp-float:hover {
+  transform: scale(1.1);
+  box-shadow: 0 6px 32px rgba(37, 211, 102, 0.6);
+}
+
+@media (max-width: 768px) {
+  .whatsapp-float {
+    bottom: 20px;
+    right: 20px;
+    width: 50px;
+    height: 50px;
+  }
+}

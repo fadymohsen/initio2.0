@@ -1,0 +1,118 @@
+{
+  "site": {
+    "hero": {
+      "title": "initio",
+      "subtitle": "We plan. You shine.",
+      "description": "initio is a fully integrated experience and production partner with one purpose: to plan, build, and deliver every detail of an experience so our clients can focus on the moment itself.",
+      "image": "/initio_heritage_architecture_1777202121601.png"
+    },
+    "philosophy": {
+      "title": "Our Values",
+      "description": "The client comes first, always. Precision behind the scenes. Quiet confidence. One team, one standard. Craft in every detail. Our work is measured by how well our clients shine, not by how loudly we announce ourselves."
+    },
+    "whoWeAre": {
+      "title": "About Us",
+      "subtitle": "Who We Are",
+      "description": "initio is a Saudi-based experience and production company built on a simple promise: we plan, you shine. We bring event management, technology, branding, and digital production under one roof, so our clients have a single team and a single standard across every part of their experience.",
+      "sections": [
+        {
+          "id": "1",
+          "title": "Founding Story",
+          "description": "initio was not built from scratch. It was built from experience. The team behind initio spent years delivering events, brand work, technology setups, and digital campaigns across Saudi Arabia and the wider region.",
+          "image": "https://images.unsplash.com/photo-1514525253161-7a46d19cd819?q=80&w=2874&auto=format&fit=crop"
+        },
+        {
+          "id": "2",
+          "title": "Our Promise",
+          "description": "We believed clients deserved to walk into their event, their launch, their announcement and shine. Without distraction. Without compromise. We plan. You shine.",
+          "image": "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?q=80&w=2940&auto=format&fit=crop"
+        },
+        {
+          "id": "3",
+          "title": "Target Audience",
+          "description": "Built to serve clients who carry the weight of a public moment: Government entities hosting national events, Corporates launching products, and Luxury brands expecting uncompromising care.",
+          "image": "https://images.unsplash.com/photo-1550684848-fac1c5b4e853?q=80&w=2940&auto=format&fit=crop"
+        }
+      ]
+    },
+    "services": {
+      "title": "Services",
+      "subtitle": "What We Do",
+      "pillars": [
+        {
+          "id": "1",
+          "title": "Event & Project Management",
+          "description": "End-to-end planning and execution of events and complex projects. From concept and budgeting to logistics, on-site management, and post-event reporting. Every detail is planned, anticipated, and resolved before our clients ever notice it. They arrive. We've already prepared everything.",
+          "list": "Corporate Events • Conferences • Product Launches • Festivals",
+          "image": "https://images.unsplash.com/photo-1540575467063-178a50c2df87?q=80&w=2940&auto=format&fit=crop"
+        },
+        {
+          "id": "2",
+          "title": "Technology & Equipment",
+          "description": "Advanced event technology and premium production infrastructure: staging, audiovisual, lighting, LED, broadcast, and live systems. Engineered and operated by specialists, so the technology disappears and the experience, and our client, lead.",
+          "list": "Staging • Audiovisual • Lighting • LED • Broadcast",
+          "image": "https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?q=80&w=3164&auto=format&fit=crop"
+        },
+        {
+          "id": "3",
+          "title": "Branding & Identity",
+          "description": "Strategic brand creation and development: naming, positioning, visual identity, guidelines, and applications. We build identities that hold their weight across every touchpoint, so our clients show up with the presence and polish their moment demands.",
+          "list": "Brand Identity • Visual Systems • Brand Strategy • Naming",
+          "image": "https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=2940&auto=format&fit=crop"
+        },
+        {
+          "id": "4",
+          "title": "Digital Production",
+          "description": "High-end content and media production for digital platforms: campaign creative, video, photography, motion, and rollout. We craft the content that surrounds our clients online with the same care we apply on the ground, so they shine on every screen, not just on stage.",
+          "list": "Campaign Creative • Video • Photography • Motion",
+          "image": "https://images.unsplash.com/photo-1600880292203-757bb62b4baf?q=80&w=2940&auto=format&fit=crop"
+        }
+      ]
+    }
+    ,
+    "partners": [
+      { "id": "1", "name": "Saudi Aramco", "logo": "" },
+      { "id": "2", "name": "NEOM", "logo": "" },
+      { "id": "3", "name": "PIF", "logo": "" },
+      { "id": "4", "name": "Saudi Tourism Authority", "logo": "" },
+      { "id": "5", "name": "Diriyah Gate Authority", "logo": "" },
+      { "id": "6", "name": "Saudi Vision 2030", "logo": "" }
+    ]
+  },
+  "projects": [
+    {
+      "id": "1",
+      "title": "Salon de l'Horizon",
+      "slug": "salon-de-lhorizon",
+      "category": "Events",
+      "image": "https://images.unsplash.com/photo-1514525253161-7a46d19cd819?q=80&w=2874&auto=format&fit=crop",
+      "description": "A private salon experience at Palais Brongniart, Paris, merging heritage grandeur with contemporary creative direction.",
+      "year": "2025",
+      "location": "Paris, France",
+      "typology": "Private Salon",
+      "summary": "A private salon experience crafted for an exclusive circle of 120 distinguished guests at Palais Brongniart, Paris, merging heritage grandeur with contemporary creative direction.",
+      "challenge": "The client sought an intimate experience that honored the architectural majesty of Palais Brongniart while introducing a modern, forward-looking narrative.",
+      "approach": "We began by studying the neoclassical architecture of the venue and built a concept that treated the space as a living character.",
+      "outcome": "The salon was received as one of the most significant private gatherings of the season.",
+      "services": ["Event Concept & Direction", "Venue Curation", "Lighting Design"],
+      "images": [
+        "https://images.unsplash.com/photo-1540575467063-178a50c2df87?q=80&w=2940&auto=format&fit=crop",
+        "https://images.unsplash.com/photo-1492684223066-81342ee5ff30?q=80&w=2940&auto=format&fit=crop"
+      ],
+      "stats": [
+        { "number": "120", "label": "Distinguished Guests" },
+        { "number": "6", "label": "Months of Planning" }
+      ]
+    },
+    {
+      "id": "2",
+      "title": "Iridescence",
+      "slug": "iridescence",
+      "category": "Branding",
+      "image": "https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?q=80&w=3164&auto=format&fit=crop",
+      "description": "A complete brand identity for a luxury fragrance house: visual systems, packaging, and art direction.",
+      "year": "2025",
+      "location": "Global"
+    }
+  ]
+}

@@ -21,13 +21,28 @@ const montserrat = Montserrat({
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL || "https://initio2-0.vercel.app"),
   title: "INITIO | A Foundation of Distinction",
   description: "Experience the ultra-premium digital readiness of Initio. High-end web design and immersive experiences.",
   openGraph: {
     title: "INITIO | A Foundation of Distinction",
     description: "Experience the ultra-premium digital readiness of Initio.",
     type: "website",
-  }
+    images: [
+      {
+        url: "/og-image.jpg",
+        width: 1200,
+        height: 630,
+        alt: "INITIO – We plan and you shine.",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "INITIO | A Foundation of Distinction",
+    description: "Experience the ultra-premium digital readiness of Initio.",
+    images: ["/og-image.jpg"],
+  },
 };
 
 export default async function RootLayout({

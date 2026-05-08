@@ -153,7 +153,7 @@ export const HomeContent = ({ site, projects }: { site: SiteContent['site'], pro
         sections={site.whoWeAre.sections}
       />
 
-      {/* Partners */}
+      {/* Partners hidden for now
       <section className="relative w-full z-10 pt-[51px] pb-16">
         <p className="font-sans text-[13px] uppercase tracking-[0.45em] text-[#71B8E3]/60 text-center mb-4">
           Trusted By
@@ -171,7 +171,6 @@ export const HomeContent = ({ site, projects }: { site: SiteContent['site'], pro
           >
             {(() => { const p = site.partners?.length ? site.partners : DEFAULT_PARTNERS; return [...p, ...p]; })().map((partner, i) =>
               partner.logo ? (
-                /* eslint-disable-next-line @next/next/no-img-element */
                 <img
                   key={i}
                   src={partner.logo}
@@ -190,6 +189,7 @@ export const HomeContent = ({ site, projects }: { site: SiteContent['site'], pro
           </div>
         </div>
       </section>
+      */}
 
       <ProcessSection />
 

@@ -22,20 +22,16 @@ export const WhoWeAreParallax = ({
     const scrollYProgress = sections.map((_, index) => {
         return useScroll({
             target: sectionRefs[index],
-            offset: ["start end", "center start"]
+            offset: ["start end", "start 0.75"]
         }).scrollYProgress;
     });
 
-    const opacityContents = scrollYProgress.map(progress => 
-        useTransform(progress, [0, 0.7], [0, 1])
+    const opacityContents = scrollYProgress.map(progress =>
+        useTransform(progress, [0, 0.3], [0, 1])
     );
-    
-    const clipProgresses = scrollYProgress.map(progress => 
-        useTransform(progress, [0, 0.7], ["inset(0% 0% 100% 0%)", "inset(0% 0% 0% 0%)"])
-    );
-    
-    const translateContents = scrollYProgress.map(progress => 
-        useTransform(progress, [0, 1], [-50, 0])
+
+    const translateContents = scrollYProgress.map(progress =>
+        useTransform(progress, [0, 0.3], [40, 0])
     );
 
   return (

@@ -40,11 +40,21 @@ export const WhoWeAreParallax = ({
 
   return (
     <section
-      className="w-full"
+      className="relative w-full overflow-hidden"
       style={{ paddingTop: '96px', paddingBottom: '160px' }}
     >
+      {/* Background Video */}
+      <video
+        autoPlay
+        muted
+        loop
+        playsInline
+        src="/videos/intro.mp4"
+        className="absolute inset-0 w-full h-full object-cover opacity-15 pointer-events-none"
+      />
+      <div className="absolute inset-0 bg-gradient-to-b from-[#010F24] via-transparent to-[#010F24] pointer-events-none" />
       <div
-        className='w-full flex flex-col items-center justify-center'
+        className='relative z-10 w-full flex flex-col items-center justify-center'
         style={{ marginBottom: '40px', paddingLeft: '32px', paddingRight: '32px' }}
       >
         <p
@@ -71,7 +81,7 @@ export const WhoWeAreParallax = ({
         </div>
       </div>
 
-        <div className="flex flex-col" style={{ paddingLeft: '32px', paddingRight: '32px' }}>
+        <div className="relative z-10 flex flex-col" style={{ paddingLeft: '32px', paddingRight: '32px' }}>
             {sections.map((section, index) => (
                 <div
                     key={section.id}

@@ -56,7 +56,7 @@ export const Footer = () => {
               <span className="font-sans text-[10px] tracking-[0.3em] uppercase text-[#71B8E3] mb-2">Navigation</span>
               <Link href="/who-we-are" className="font-sans text-sm text-[#D4D4D4] hover:text-white transition-colors">Who We Are</Link>
               <Link href="/process" className="font-sans text-sm text-[#D4D4D4] hover:text-white transition-colors">Our Process</Link>
-              <Link href="/portfolio" className="font-sans text-sm text-[#D4D4D4] hover:text-white transition-colors">Portfolio</Link>
+              {/* <Link href="/portfolio" className="font-sans text-sm text-[#D4D4D4] hover:text-white transition-colors">Portfolio</Link> */}
             </div>
             <div className="flex flex-col gap-4">
               <span className="font-sans text-[10px] tracking-[0.3em] uppercase text-[#71B8E3] mb-2">Socials</span>

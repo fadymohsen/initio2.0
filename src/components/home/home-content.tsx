@@ -189,6 +189,7 @@ export const HomeContent = ({ site, projects }: { site: SiteContent['site'], pro
 
       <ProcessSection />
 
+      {/* Portfolio section hidden for now
       <section className="relative w-full z-10">
         <div className="hidden md:flex w-full flex-col items-center justify-center px-6" style={{ paddingTop: '70px', paddingBottom: '90px' }}>
           <p className="font-sans text-[11px] uppercase tracking-[0.4em] text-[#71B8E3]/80 mb-6 text-center">
@@ -207,6 +208,7 @@ export const HomeContent = ({ site, projects }: { site: SiteContent['site'], pro
           textColor: "white"
         }))} />
       </section>
+      */}
 
       <ParallaxScrollFeatureSection
         title={site.services.title}

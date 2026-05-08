@@ -71,16 +71,29 @@ export const Header = () => {
   };
 
   return (
-    <header 
-      className={`fixed top-0 left-0 w-full z-[100] transition-colors duration-500 box-border ${
-        scrolled ? "bg-[#010F24]/80 backdrop-blur-xl border-b border-white/5 shadow-2xl" : "bg-transparent"
-      }`}
-      style={{ 
-        paddingTop: scrolled ? '16px' : '24px', 
-        paddingBottom: scrolled ? '16px' : '24px' 
+    <header
+      className="fixed top-0 left-0 w-full z-[100] flex justify-center box-border"
+      style={{
+        paddingTop: scrolled ? '12px' : '20px',
+        paddingBottom: scrolled ? '12px' : '20px'
       }}
     >
-      <div className="w-full max-w-7xl mx-auto flex items-center justify-between" style={{ paddingLeft: '24px', paddingRight: '24px' }}>
+      <div
+        className={`w-full max-w-7xl flex items-center justify-between transition-all duration-500 ${
+          scrolled
+            ? "bg-white/90 backdrop-blur-xl shadow-lg"
+            : "bg-transparent"
+        }`}
+        style={{
+          paddingLeft: '24px',
+          paddingRight: '24px',
+          paddingTop: '12px',
+          paddingBottom: '12px',
+          borderRadius: '9999px',
+          marginLeft: '16px',
+          marginRight: '16px',
+        }}
+      >
         {/* Logo */}
         <Link href="/" className="relative z-[110] group flex items-center" onClick={() => setIsOpen(false)}>
           <Image
@@ -89,7 +102,9 @@ export const Header = () => {
             width={120}
             height={32}
             priority
-            className="h-8 w-auto transition-opacity duration-300 group-hover:opacity-80"
+            className={`h-8 w-auto transition-all duration-500 group-hover:opacity-80 ${
+              scrolled ? "" : "brightness-0 invert"
+            }`}
           />
         </Link>
 
@@ -99,14 +114,18 @@ export const Header = () => {
             <Link 
               key={idx}
               href={link.href}
-              className="font-sans text-xs tracking-[0.2em] uppercase text-[#D4D4D4] hover:text-[#71B8E3] transition-colors duration-300"
+              className={`font-sans text-xs tracking-[0.2em] uppercase transition-colors duration-500 ${
+                scrolled ? "text-[#010F24] hover:text-[#2D64AE]" : "text-white hover:text-[#71B8E3]"
+              }`}
             >
               {link.title}
             </Link>
           ))}
           <Link 
             href="/contact"
-            className="px-8 py-3 text-[#71B8E3] text-xs font-sans tracking-[0.2em] uppercase hover:text-white transition-all duration-500 backdrop-blur-sm"
+            className={`px-8 py-3 text-xs font-sans tracking-[0.2em] uppercase transition-all duration-500 ${
+              scrolled ? "text-[#2D64AE] hover:text-[#010F24]" : "text-[#71B8E3] hover:text-white"
+            }`}
           >
             Start a Project
           </Link>
@@ -117,17 +136,17 @@ export const Header = () => {
           onClick={() => setIsOpen(!isOpen)}
           className="md:hidden relative z-[110] w-12 h-12 flex flex-col items-end justify-center gap-2 focus:outline-none"
         >
-          <motion.span 
+          <motion.span
             animate={{ rotate: isOpen ? 45 : 0, y: isOpen ? 9 : 0, width: isOpen ? "100%" : "80%" }}
-            className="w-full h-[1.5px] bg-white block transition-transform origin-center"
+            className={`w-full h-[1.5px] block transition-all origin-center ${scrolled && !isOpen ? "bg-[#010F24]" : "bg-white"}`}
           />
-          <motion.span 
+          <motion.span
             animate={{ opacity: isOpen ? 0 : 1, width: isOpen ? "0%" : "60%" }}
-            className="w-3/4 h-[1.5px] bg-white block transition-all"
+            className={`w-3/4 h-[1.5px] block transition-all ${scrolled && !isOpen ? "bg-[#010F24]" : "bg-white"}`}
           />
-          <motion.span 
+          <motion.span
             animate={{ rotate: isOpen ? -45 : 0, y: isOpen ? -9 : 0, width: "100%" }}
-            className="w-full h-[1.5px] bg-white block transition-transform origin-center"
+            className={`w-full h-[1.5px] block transition-all origin-center ${scrolled && !isOpen ? "bg-[#010F24]" : "bg-white"}`}
           />
         </button>
       </div>

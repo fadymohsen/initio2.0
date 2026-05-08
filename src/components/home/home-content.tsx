@@ -9,6 +9,7 @@ import { CardsParallax } from "@/components/ui/scroll-cards";
 import { ParallaxScrollFeatureSection } from "@/components/ui/parallax-scroll-feature-section";
 import { WhoWeAreParallax } from "@/components/ui/who-we-are-parallax";
 import { ProcessSection } from "@/components/ui/process-section";
+import { VideoIntro } from "@/components/sections/VideoIntro";
 import { SiteContent, Project } from "@/lib/data-service";
 
 gsap.registerPlugin(useGSAP, ScrollTrigger);
@@ -55,6 +56,9 @@ export const HomeContent = ({ site, projects }: { site: SiteContent['site'], pro
 
   return (
     <div ref={root} className="relative text-[#D4D4D4] isolate">
+      {/* Video Intro */}
+      <VideoIntro />
+
       {/* Site-wide Sparkles */}
       <div className="fixed inset-0 w-full h-full pointer-events-none z-[-1] bg-[#010F24]">
         <SparklesCore

@@ -1,0 +1,11 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(npx tsc *)",
+      "Bash(npx eslint *)",
+      "Bash(node -e 'const fs=require\\('\\\\''fs'\\\\''\\); const b=fs.readFileSync\\('\\\\''__TRACKED_VAR__'\\\\''\\); const w=b.readUInt32BE\\(16\\); const h=b.readUInt32BE\\(20\\); console.log\\(w+'\\\\''x'\\\\''+h\\);')",
+      "Bash(node -e \"const fs=require\\('fs'\\); const b=fs.readFileSync\\('hero \\(2\\).png'\\); console.log\\(b.readUInt32BE\\(16\\)+'x'+b.readUInt32BE\\(20\\)\\);\")",
+      "Bash(node -e \"const fs=require\\('fs'\\); const b=fs.readFileSync\\('logo.png'\\); console.log\\(b.readUInt32BE\\(16\\)+'x'+b.readUInt32BE\\(20\\)\\);\")"
+    ]
+  }
+}

@@ -90,7 +90,7 @@ export const WhoWeAreParallax = ({
                         className="group relative flex flex-col items-center text-center rounded-2xl border border-white/10 bg-[#010F24]/60 backdrop-blur-md p-8 md:p-10 transition-all duration-500 hover:border-[#71B8E3]/30 hover:bg-[#010F24]/80"
                     >
                         {/* Number accent */}
-                        <span className="font-serif text-[#71B8E3]/20 text-7xl md:text-8xl font-normal absolute -top-2 right-4 select-none leading-none group-hover:text-[#71B8E3]/30 transition-colors duration-500">
+                        <span className="font-serif text-[#71B8E3]/20 text-4xl md:text-5xl font-normal absolute top-4 right-5 select-none leading-none group-hover:text-[#71B8E3]/30 transition-colors duration-500">
                             {String(index + 1).padStart(2, '0')}
                         </span>
 

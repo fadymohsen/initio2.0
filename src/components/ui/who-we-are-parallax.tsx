@@ -50,9 +50,9 @@ export const WhoWeAreParallax = ({
         loop
         playsInline
         src="/videos/intro.mp4"
-        className="absolute inset-0 w-full h-full object-cover opacity-15 pointer-events-none"
+        className="absolute inset-0 w-full h-full object-cover opacity-40 pointer-events-none"
       />
-      <div className="absolute inset-0 bg-gradient-to-b from-[#010F24] via-transparent to-[#010F24] pointer-events-none" />
+      <div className="absolute inset-0 bg-gradient-to-b from-[#010F24] via-[#010F24]/40 to-[#010F24] pointer-events-none" />
       <div
         className='relative z-10 w-full flex flex-col items-center justify-center'
         style={{ marginBottom: '40px', paddingLeft: '32px', paddingRight: '32px' }}

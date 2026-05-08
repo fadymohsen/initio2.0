@@ -33,6 +33,30 @@ export const VideoIntro = () => {
       {/* Gradient overlays */}
       <div className="absolute inset-0 bg-gradient-to-b from-black/30 via-transparent to-black/60 pointer-events-none" />
 
+      {/* Text + CTA */}
+      <div className="relative z-10 flex flex-col items-center text-center px-6">
+        <motion.p
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 1.2, delay: 0.3, ease: [0.76, 0, 0.24, 1] }}
+          className="font-sans text-white/80 uppercase tracking-[0.3em] font-light"
+          style={{ fontSize: "clamp(0.75rem, 1.2vw, 0.95rem)" }}
+        >
+          A Foundation of Distinction
+        </motion.p>
+        <motion.a
+          href="/contact"
+          initial={{ opacity: 0, y: 16 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 1, delay: 0.8, ease: [0.76, 0, 0.24, 1] }}
+          className="mt-8 inline-flex items-center gap-3 px-8 py-3 border border-white/30 text-white font-sans text-[11px] uppercase tracking-[0.4em] hover:bg-white/10 transition-all duration-300"
+          style={{ borderRadius: "9999px" }}
+        >
+          Start a Project
+          <span className="inline-block transition-transform duration-300 group-hover:translate-x-1">&#8594;</span>
+        </motion.a>
+      </div>
+
       {/* Scroll down button */}
       <button
         onClick={handleScroll}

@@ -69,7 +69,7 @@ export const VideoIntro = () => {
               className="font-sans text-white/80 uppercase tracking-[0.3em] font-light"
               style={{ fontSize: "clamp(0.75rem, 1.2vw, 0.95rem)" }}
             >
-              A Foundation of Distinction
+              Where Vision Meets Experience
             </p>
             <motion.a
               href="/contact"
@@ -79,7 +79,7 @@ export const VideoIntro = () => {
               className="mt-8 inline-flex items-center gap-3 px-8 py-3 border border-white/30 text-white font-sans text-[11px] uppercase tracking-[0.4em] hover:bg-white/10 transition-all duration-300"
               style={{ borderRadius: "9999px" }}
             >
-              Start a Project
+              Plan Your Event
               <span className="inline-block transition-transform duration-300 group-hover:translate-x-1">&#8594;</span>
             </motion.a>
           </motion.div>

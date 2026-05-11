@@ -28,8 +28,7 @@ export const ClientsSlider = () => {
             key={client.name}
             src={client.logo}
             alt={client.name}
-            className="h-16 md:h-20 w-auto select-none object-contain opacity-50 grayscale hover:opacity-90 hover:grayscale-0 transition-all duration-500"
-            style={{ mixBlendMode: "screen" }}
+            className="h-16 md:h-20 w-auto select-none object-contain transition-transform duration-500 hover:scale-105"
           />
         ))}
       </div>

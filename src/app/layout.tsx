@@ -60,6 +60,9 @@ export default async function RootLayout({
       lang="en"
       className={`${ebGaramond.variable} ${montserrat.variable} antialiased${isAdmin ? '' : ' selection:bg-accent selection:text-primary cursor-none'}`}
     >
+      <head>
+        <link rel="preload" href="/videos/initio-hero-v1.7.mp4" as="video" type="video/mp4" />
+      </head>
       <body className={`bg-primary text-light min-h-screen${isAdmin ? '' : ' cursor-none'}`}>
         {isAdmin ? (
           <>{children}</>

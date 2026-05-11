@@ -36,6 +36,7 @@ export const Hero = () => {
         muted
         loop
         playsInline
+        preload="auto"
         src="/videos/initio-hero-v1.7.mp4"
         className="absolute inset-0 w-full h-full object-cover scale-105"
       />

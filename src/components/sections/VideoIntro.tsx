@@ -26,14 +26,13 @@ export const VideoIntro = () => {
         muted
         loop
         playsInline
+        preload="auto"
         src="/videos/initio-hero-v1.7.mp4"
-        className="absolute inset-0 w-full h-full object-cover opacity-40"
+        className="absolute inset-0 w-full h-full object-cover opacity-80"
       />
 
-      {/* Gradient overlays */}
-      <div className="absolute inset-0 bg-gradient-to-b from-black/30 via-transparent to-transparent pointer-events-none" />
       {/* Bottom fade into primary */}
-      <div className="absolute inset-x-0 bottom-0 h-[40%] bg-gradient-to-t from-[#010F24] via-[#010F24]/80 to-transparent pointer-events-none" />
+      <div className="absolute inset-x-0 bottom-0 h-[30%] bg-gradient-to-t from-[#010F24] via-[#010F24]/60 to-transparent pointer-events-none" />
 
       {/* Text + CTA */}
       <div className="relative z-10 flex flex-col items-center text-center px-6">

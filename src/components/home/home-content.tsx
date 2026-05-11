@@ -1,17 +1,19 @@
 'use client';
 
 import { useRef } from "react";
+import dynamic from "next/dynamic";
 import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { SparklesCore } from "@/components/ui/sparkles";
 import { CardsParallax } from "@/components/ui/scroll-cards";
-import { ParallaxScrollFeatureSection } from "@/components/ui/parallax-scroll-feature-section";
-import { WhoWeAreParallax } from "@/components/ui/who-we-are-parallax";
-import { ProcessSection } from "@/components/ui/process-section";
-import { ClientsSlider } from "@/components/ui/clients-slider";
 import { VideoIntro } from "@/components/sections/VideoIntro";
 import { SiteContent, Project } from "@/lib/data-service";
+
+const ParallaxScrollFeatureSection = dynamic(() => import("@/components/ui/parallax-scroll-feature-section").then(m => m.ParallaxScrollFeatureSection));
+const WhoWeAreParallax = dynamic(() => import("@/components/ui/who-we-are-parallax").then(m => m.WhoWeAreParallax));
+const ProcessSection = dynamic(() => import("@/components/ui/process-section").then(m => m.ProcessSection));
+const ClientsSlider = dynamic(() => import("@/components/ui/clients-slider").then(m => m.ClientsSlider));
 
 gsap.registerPlugin(useGSAP, ScrollTrigger);
 

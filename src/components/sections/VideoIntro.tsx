@@ -1,11 +1,9 @@
 "use client";
 
-import { useRef, useState } from "react";
-import { motion, AnimatePresence } from "framer-motion";
+import { useRef } from "react";
 
 export const VideoIntro = () => {
   const sectionRef = useRef<HTMLDivElement>(null);
-  const [showMain, setShowMain] = useState(false);
 
   const handleScroll = () => {
     const section = sectionRef.current;
@@ -21,34 +19,14 @@ export const VideoIntro = () => {
       ref={sectionRef}
       className="relative h-[100svh] w-full flex items-center justify-center overflow-hidden bg-black"
     >
-      {/* Pre-intro video */}
-      <AnimatePresence>
-        {!showMain && (
-          <motion.video
-            key="preintro"
-            autoPlay
-            muted
-            playsInline
-            src="/videos/preintro.mp4"
-            onEnded={() => setShowMain(true)}
-            exit={{ opacity: 0 }}
-            transition={{ duration: 1 }}
-            className="absolute inset-0 w-full h-full object-cover"
-          />
-        )}
-      </AnimatePresence>
-
-      {/* Main intro video */}
-      <motion.video
-        autoPlay={showMain}
+      {/* Background video */}
+      <video
+        autoPlay
         muted
         loop
         playsInline
-        src="/videos/intro.mp4"
-        initial={{ opacity: 0 }}
-        animate={{ opacity: showMain ? 0.4 : 0 }}
-        transition={{ duration: 1 }}
-        className="absolute inset-0 w-full h-full object-cover"
+        src="/videos/initio-hero-v1.7.mp4"
+        className="absolute inset-0 w-full h-full object-cover opacity-40"
       />
 
       {/* Gradient overlays */}

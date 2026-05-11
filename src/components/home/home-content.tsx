@@ -9,6 +9,7 @@ import { CardsParallax } from "@/components/ui/scroll-cards";
 import { ParallaxScrollFeatureSection } from "@/components/ui/parallax-scroll-feature-section";
 import { WhoWeAreParallax } from "@/components/ui/who-we-are-parallax";
 import { ProcessSection } from "@/components/ui/process-section";
+import { ClientsSlider } from "@/components/ui/clients-slider";
 import { VideoIntro } from "@/components/sections/VideoIntro";
 import { SiteContent, Project } from "@/lib/data-service";
 
@@ -190,6 +191,8 @@ export const HomeContent = ({ site, projects }: { site: SiteContent['site'], pro
         </div>
       </section>
       */}
+
+      <ClientsSlider />
 
       <ProcessSection />
 

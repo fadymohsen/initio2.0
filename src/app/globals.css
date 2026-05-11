@@ -13,6 +13,8 @@
   --font-sans: var(--font-montserrat), ui-sans-serif, system-ui, sans-serif;
 
   --ease-premium: cubic-bezier(0.76, 0, 0.24, 1);
+
+  --animate-marquee: marquee 30s linear infinite;
 }
 
 @layer base {

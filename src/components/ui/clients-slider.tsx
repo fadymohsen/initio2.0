@@ -2,10 +2,10 @@
 
 const clients = [
   { name: "Saudi Aramco", logo: "/clients/aramco.png" },
-  { name: "SABIC", logo: "/clients/sabic.webp" },
-  { name: "Sadara", logo: "/clients/sadara.jpg" },
+  { name: "SABIC", logo: "/clients/sabic.png" },
+  { name: "Sadara", logo: "/clients/sadara.png" },
   { name: "Riyadh Season", logo: "/clients/riyadh-season.png" },
-  { name: "General Sports Authority", logo: "/clients/general-sports-authority.jpg" },
+  { name: "General Sports Authority", logo: "/clients/general-sports-authority.png" },
 ];
 
 export const ClientsSlider = () => {

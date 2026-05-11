@@ -9,11 +9,8 @@ const clients = [
 ];
 
 export const ClientsSlider = () => {
-  // Double the array for seamless infinite scroll
-  const logos = [...clients, ...clients];
-
   return (
-    <section className="relative w-full py-20 overflow-hidden">
+    <section className="relative w-full py-20">
       {/* Heading */}
       <div className="text-center mb-14 px-6">
         <p className="font-sans text-[11px] uppercase tracking-[0.4em] text-[#71B8E3]/80 mb-3">
@@ -24,26 +21,17 @@ export const ClientsSlider = () => {
         </h2>
       </div>
 
-      {/* Sliding track */}
-      <div
-        className="relative"
-        style={{
-          maskImage:
-            "linear-gradient(to right, transparent, black 12%, black 88%, transparent)",
-          WebkitMaskImage:
-            "linear-gradient(to right, transparent, black 12%, black 88%, transparent)",
-        }}
-      >
-        <div className="flex items-center w-max gap-20 animate-marquee">
-          {logos.map((client, i) => (
-            <img
-              key={i}
-              src={client.logo}
-              alt={client.name}
-              className="h-10 md:h-12 w-auto shrink-0 select-none object-contain opacity-40 grayscale hover:opacity-80 hover:grayscale-0 transition-all duration-500"
-            />
-          ))}
-        </div>
+      {/* Static logos row */}
+      <div className="flex items-center justify-center gap-12 md:gap-16 px-6 flex-wrap">
+        {clients.map((client) => (
+          <img
+            key={client.name}
+            src={client.logo}
+            alt={client.name}
+            className="h-16 md:h-20 w-auto select-none object-contain opacity-50 grayscale hover:opacity-90 hover:grayscale-0 transition-all duration-500"
+            style={{ mixBlendMode: "screen" }}
+          />
+        ))}
       </div>
     </section>
   );

@@ -7,9 +7,9 @@
   --color-neutral: #596a72;
   --color-light: #d4d4d4;
 
-  --font-heading: var(--font-montserrat), sans-serif;
+  --font-heading: var(--font-poppins), sans-serif;
   --font-body: var(--font-montserrat), sans-serif;
-  --font-serif: var(--font-montserrat), ui-sans-serif, system-ui, sans-serif;
+  --font-serif: var(--font-poppins), ui-sans-serif, system-ui, sans-serif;
   --font-sans: var(--font-montserrat), ui-sans-serif, system-ui, sans-serif;
 
   --ease-premium: cubic-bezier(0.76, 0, 0.24, 1);

@@ -101,7 +101,7 @@ export const HomeContent = ({ site, projects }: { site: SiteContent['site'], pro
           {/* Headline */}
           <h1
             className="font-serif font-bold uppercase tracking-[0.02em] text-[#D4D4D4] whitespace-nowrap"
-            style={{ fontSize: 'clamp(1.9rem, 7vw, 6.5rem)' }}
+            style={{ fontSize: 'clamp(1.5rem, 5.5vw, 5rem)' }}
           >
             <span className="inline-block overflow-hidden align-bottom">
               <span data-hero-word className="inline-block">WE PLAN</span>

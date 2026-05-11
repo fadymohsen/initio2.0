@@ -1,6 +1,7 @@
 "use client";
 
 import { useRef } from "react";
+import { motion } from "framer-motion";
 
 export const VideoIntro = () => {
   const sectionRef = useRef<HTMLDivElement>(null);

@@ -40,7 +40,7 @@ export const VideoIntro = () => {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1.2, delay: 0.3, ease: [0.76, 0, 0.24, 1] }}
-          className="font-sans text-[#010F24] uppercase tracking-[0.2em] sm:tracking-[0.3em] font-semibold drop-shadow-[0_1px_2px_rgba(255,255,255,0.3)]"
+          className="font-sans text-white uppercase tracking-[0.2em] sm:tracking-[0.3em] font-bold drop-shadow-[0_2px_4px_rgba(0,0,0,0.5)]"
           style={{ fontSize: "clamp(0.85rem, 1.2vw, 0.95rem)" }}
         >
           Where Vision Meets Experience
@@ -50,7 +50,7 @@ export const VideoIntro = () => {
           initial={{ opacity: 0, y: 16 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1, delay: 0.8, ease: [0.76, 0, 0.24, 1] }}
-          className="mt-6 sm:mt-8 inline-flex items-center gap-3 px-6 sm:px-8 py-3 border-2 border-[#010F24]/60 text-[#010F24] font-sans text-[11px] uppercase tracking-[0.3em] sm:tracking-[0.4em] hover:bg-[#010F24]/10 font-semibold transition-all duration-300"
+          className="mt-6 sm:mt-8 inline-flex items-center gap-3 px-6 sm:px-8 py-3 border-2 border-white/50 text-white font-sans text-[11px] uppercase tracking-[0.3em] sm:tracking-[0.4em] hover:bg-white/10 font-bold drop-shadow-[0_2px_4px_rgba(0,0,0,0.5)] transition-all duration-300"
           style={{ borderRadius: "9999px" }}
         >
           Plan Your Event
@@ -64,13 +64,13 @@ export const VideoIntro = () => {
         className="absolute bottom-12 left-1/2 -translate-x-1/2 z-10 flex flex-col items-center gap-3 group cursor-pointer"
         aria-label="Scroll down"
       >
-        <span className="font-sans text-[10px] uppercase tracking-[0.4em] text-[#010F24]/70 group-hover:text-[#010F24] font-semibold transition-colors duration-300">
+        <span className="font-sans text-[10px] uppercase tracking-[0.4em] text-white/70 group-hover:text-white font-bold transition-colors duration-300">
           Discover
         </span>
         <motion.div
           animate={{ y: [0, 8, 0] }}
           transition={{ duration: 1.8, repeat: Infinity, ease: "easeInOut" }}
-          className="w-10 h-10 rounded-full border-2 border-[#010F24]/40 group-hover:border-[#010F24]/70 flex items-center justify-center transition-colors duration-300"
+          className="w-10 h-10 rounded-full border-2 border-white/40 group-hover:border-white/70 flex items-center justify-center transition-colors duration-300"
         >
           <svg
             width="16"
@@ -81,7 +81,7 @@ export const VideoIntro = () => {
             strokeWidth="1.5"
             strokeLinecap="round"
             strokeLinejoin="round"
-            className="text-[#010F24]/70 group-hover:text-[#010F24] transition-colors duration-300"
+            className="text-white/70 group-hover:text-white transition-colors duration-300"
           >
             <path d="M12 5v14M19 12l-7 7-7-7" />
           </svg>

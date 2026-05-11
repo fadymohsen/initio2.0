@@ -104,11 +104,11 @@ export const HomeContent = ({ site, projects }: { site: SiteContent['site'], pro
             style={{ fontSize: 'clamp(1.9rem, 7vw, 6.5rem)' }}
           >
             <span className="inline-block overflow-hidden align-bottom">
-              <span data-hero-word className="inline-block">WE PLAN.</span>
+              <span data-hero-word className="inline-block">WE PLAN</span>
             </span>
             <span className="inline-block" style={{ width: '0.45em' }} />
             <span className="inline-block overflow-hidden align-bottom">
-              <span data-hero-word className="inline-block text-accent">YOU SHINE.</span>
+              <span data-hero-word className="inline-block text-accent">YOU SHINE</span>
             </span>
           </h1>
 

@@ -21,16 +21,21 @@ export const ClientsSlider = () => {
         </h2>
       </div>
 
-      {/* Static logos row */}
-      <div className="flex items-center justify-center gap-12 md:gap-16 px-6 flex-wrap">
-        {clients.map((client) => (
-          <img
-            key={client.name}
-            src={client.logo}
-            alt={client.name}
-            className="h-16 md:h-20 w-auto select-none object-contain transition-transform duration-500 hover:scale-105"
-          />
-        ))}
+      {/* Infinite sliding logos */}
+      <div className="overflow-hidden w-full">
+        <div
+          className="flex w-max items-center gap-12 md:gap-16"
+          style={{ animation: "marquee 30s linear infinite" }}
+        >
+          {[...clients, ...clients].map((client, i) => (
+            <img
+              key={`${client.name}-${i}`}
+              src={client.logo}
+              alt={client.name}
+              className="h-16 md:h-20 w-auto select-none object-contain shrink-0"
+            />
+          ))}
+        </div>
       </div>
     </section>
   );

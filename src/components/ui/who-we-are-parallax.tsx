@@ -39,15 +39,6 @@ export const WhoWeAreParallax = ({
       className="relative w-full overflow-hidden"
       style={{ paddingTop: '96px', paddingBottom: '160px' }}
     >
-      {/* Background Video */}
-      <video
-        autoPlay
-        muted
-        loop
-        playsInline
-        src="/videos/intro.mp4"
-        className="absolute inset-0 w-full h-full object-cover opacity-60 pointer-events-none"
-      />
       <div className="absolute inset-0 bg-gradient-to-b from-[#010F24] via-transparent to-[#010F24] pointer-events-none" />
       <div
         className='relative z-10 w-full flex flex-col items-center justify-center'

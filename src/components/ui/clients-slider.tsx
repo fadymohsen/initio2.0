@@ -1,7 +1,7 @@
 "use client";
 
 const clients = [
-  { name: "Saudi Aramco", logo: "/clients/aramco.webp" },
+  { name: "Saudi Aramco", logo: "/clients/aramco.png" },
   { name: "SABIC", logo: "/clients/sabic.webp" },
   { name: "Sadara", logo: "/clients/sadara.jpg" },
   { name: "Riyadh Season", logo: "/clients/riyadh-season.png" },

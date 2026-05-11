@@ -99,24 +99,18 @@ export const HomeContent = ({ site, projects }: { site: SiteContent['site'], pro
         <div className="relative z-20 w-full flex flex-col items-center text-center px-6">
 
           {/* Headline */}
-          <div className="overflow-hidden">
-            <h1
-              data-hero-word
-              className="font-serif font-normal leading-[1.05] tracking-[-0.02em] text-[#D4D4D4]"
-              style={{ fontSize: 'clamp(3.4rem, 7.5vw, 7.5rem)' }}
-            >
-              We plan.
-            </h1>
-          </div>
-          <div className="overflow-hidden">
-            <h1
-              data-hero-word
-              className="font-serif font-normal leading-[1.05] tracking-[-0.02em] text-accent"
-              style={{ fontSize: 'clamp(3.4rem, 7.5vw, 7.5rem)' }}
-            >
-              You shine.
-            </h1>
-          </div>
+          <h1
+            className="font-serif font-bold uppercase tracking-[0.02em] text-[#D4D4D4] whitespace-nowrap"
+            style={{ fontSize: 'clamp(1.9rem, 7vw, 6.5rem)' }}
+          >
+            <span className="inline-block overflow-hidden align-bottom">
+              <span data-hero-word className="inline-block">WE PLAN</span>
+            </span>
+            <span className="inline-block" style={{ width: '0.45em' }} />
+            <span className="inline-block overflow-hidden align-bottom">
+              <span data-hero-word className="inline-block text-accent">YOU SHINE</span>
+            </span>
+          </h1>
 
           {/* Rule */}
           <div

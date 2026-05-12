@@ -93,7 +93,7 @@ export default function WhoWeArePage() {
           <h1 className="font-serif text-5xl md:text-7xl lg:text-8xl text-white leading-[1.05]" style={{ marginBottom: '30px' }}>
             We plan.
             <br />
-            <span className="italic text-[#71B8E3]">You shine.</span>
+            <span className="text-[#71B8E3]">You shine.</span>
           </h1>
           <div className="max-w-[52ch] text-center font-sans text-base md:text-lg font-light leading-relaxed text-[#D4D4D4]/80">
             <VerticalCutReveal
@@ -247,7 +247,7 @@ export default function WhoWeArePage() {
             viewport={{ once: true }}
             transition={{ duration: 0.8, ease: MOTION_EASE }}
           >
-            <p className="font-serif text-3xl md:text-5xl text-white leading-snug italic" style={{ marginBottom: '24px' }}>
+            <p className="font-serif text-3xl md:text-5xl text-white leading-snug" style={{ marginBottom: '24px' }}>
               We plan. You shine.
             </p>
             <p className="font-sans text-sm uppercase tracking-[0.3em] text-[#71B8E3]/60">

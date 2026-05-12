@@ -68,7 +68,7 @@ export default function ContactPage() {
           <h1 className="font-serif text-5xl md:text-7xl lg:text-8xl text-white leading-[1.05]" style={{ marginBottom: '30px' }}>
             Let&apos;s Start
             <br />
-            <span className="italic text-[#71B8E3]">a Conversation</span>
+            <span className="text-[#71B8E3]">a Conversation</span>
           </h1>
           <div className="max-w-[52ch] text-center font-sans text-base md:text-lg font-light leading-relaxed text-[#D4D4D4]/80">
             <VerticalCutReveal

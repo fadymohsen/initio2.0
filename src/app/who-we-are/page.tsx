@@ -93,21 +93,22 @@ export default function WhoWeArePage() {
           <p className="font-sans text-[11px] uppercase tracking-[0.5em] text-[#71B8E3] font-medium" style={{ marginBottom: '20px' }}>
             About Us
           </p>
-          <h1 className="font-serif text-5xl md:text-7xl lg:text-8xl text-white leading-[1.05]" style={{ marginBottom: '30px' }}>
-            We plan.
-            <br />
-            <span className="text-[#71B8E3]">You shine.</span>
-          </h1>
-          <div className="max-w-[52ch] text-center font-sans text-base md:text-lg font-light leading-relaxed text-[#D4D4D4]/80">
+          <div className="max-w-[60ch] text-center font-sans text-base md:text-lg font-light leading-relaxed text-[#D4D4D4]/80">
             <VerticalCutReveal
               splitBy="words"
               staggerDuration={0.04}
               staggerFrom="first"
-              transition={{ type: "spring", stiffness: 200, damping: 24, delay: 0.6 }}
+              transition={{ type: "spring", stiffness: 200, damping: 24, delay: 0.3 }}
               containerClassName="justify-center"
             >
               initio is a Saudi-based experience and production company built on a simple promise: we plan, you shine.
             </VerticalCutReveal>
+            <p style={{ marginTop: '24px' }}>
+              We bring event management, technology, branding, and digital production under one roof, so our clients work with a single team and a single standard across every part of their experience.
+            </p>
+            <p style={{ marginTop: '20px' }}>
+              From national moments to private gatherings, we plan quietly, execute precisely, and let every client step into the spotlight they deserve.
+            </p>
           </div>
         </motion.div>
       </section>

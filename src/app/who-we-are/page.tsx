@@ -3,8 +3,11 @@
 import { motion } from "framer-motion";
 import { SparklesCore } from "@/components/ui/sparkles";
 import { VerticalCutReveal } from "@/components/ui/vertical-cut-reveal";
+import { WhoWeAreParallax } from "@/components/ui/who-we-are-parallax";
+import { ClientsSlider } from "@/components/ui/clients-slider";
 import { ArrowUpRight } from "lucide-react";
 import Link from "next/link";
+import content from "@/data/content.json";
 
 const MOTION_EASE = [0.76, 0, 0.24, 1] as const;
 
@@ -108,6 +111,14 @@ export default function WhoWeArePage() {
           </div>
         </motion.div>
       </section>
+
+      {/* ── INSPIRING STORY ── */}
+      <WhoWeAreParallax
+        title={content.site.whoWeAre.title}
+        subtitle="Our Story"
+        description={content.site.whoWeAre.description}
+        sections={content.site.whoWeAre.sections}
+      />
 
       {/* ── MISSION ── */}
       <section className="w-full border-t border-white/5 flex justify-center" style={{ paddingTop: '120px', paddingBottom: '120px' }}>
@@ -256,6 +267,11 @@ export default function WhoWeArePage() {
           </motion.div>
         </div>
       </section>
+
+      {/* ── CLIENTS ── */}
+      <div className="w-full border-t border-white/5">
+        <ClientsSlider />
+      </div>
 
       {/* ── CTA ── */}
       <section className="w-full border-t border-white/5 flex justify-center" style={{ paddingTop: '120px', paddingBottom: '120px' }}>

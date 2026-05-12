@@ -7,7 +7,7 @@ import { motion, Variants } from "framer-motion";
 
 const navLinks = [
   { title: "Home", href: "/" },
-  { title: "Who We Are", href: "/who-we-are" },
+  { title: "About Us", href: "/who-we-are" },
   { title: "Our Process", href: "/process" },
   // { title: "Portfolio", href: "/portfolio" },
   { title: "Contact", href: "/contact" },
@@ -160,7 +160,7 @@ export const Header = () => {
       >
         <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-[#2D64AE]/10 via-[#010F24] to-[#010F24] pointer-events-none" />
         
-        <nav className="flex flex-col items-center gap-10 relative z-[110] w-full px-6">
+        <nav className="flex flex-col items-center gap-6 relative z-[110] w-full px-6">
           {navLinks.map((link, i) => (
             <motion.div
               key={i}
@@ -170,10 +170,10 @@ export const Header = () => {
               animate={isOpen ? "open" : "closed"}
               className="overflow-hidden"
             >
-              <Link 
+              <Link
                 href={link.href}
                 onClick={() => setIsOpen(false)}
-                className="block font-serif text-5xl text-white hover:text-[#71B8E3] transition-colors duration-300 relative group text-center"
+                className="block font-serif text-2xl text-white hover:text-[#71B8E3] transition-colors duration-300 relative group text-center"
               >
                 {link.title}
                 <span className="absolute -bottom-4 left-1/2 -translate-x-1/2 w-0 h-px bg-[#71B8E3] transition-all duration-500 group-hover:w-full" />

@@ -88,7 +88,7 @@ export default function WhoWeArePage() {
           className="flex flex-col items-center text-center max-w-4xl mx-auto"
         >
           <p className="font-sans text-[11px] uppercase tracking-[0.5em] text-[#71B8E3] font-medium" style={{ marginBottom: '20px' }}>
-            Who We Are
+            About Us
           </p>
           <h1 className="font-serif text-5xl md:text-7xl lg:text-8xl text-white leading-[1.05]" style={{ marginBottom: '30px' }}>
             We plan.

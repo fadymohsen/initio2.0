@@ -1,6 +1,7 @@
 "use client";
 
-import { motion } from "framer-motion";
+import { useEffect, useRef, useState } from "react";
+import { motion, useInView } from "framer-motion";
 import { SparklesCore } from "@/components/ui/sparkles";
 import { VerticalCutReveal } from "@/components/ui/vertical-cut-reveal";
 import { WhoWeAreParallax } from "@/components/ui/who-we-are-parallax";
@@ -12,11 +13,38 @@ import content from "@/data/content.json";
 const MOTION_EASE = [0.76, 0, 0.24, 1] as const;
 
 const stats = [
-  { number: "50+", label: "Events Produced" },
-  { number: "8+", label: "Years of Excellence" },
-  { number: "30+", label: "Prestigious Clients" },
-  { number: "15+", label: "Industry Awards" },
+  { target: 50, suffix: "+", label: "Events Produced" },
+  { target: 8, suffix: "+", label: "Years of Excellence" },
+  { target: 30, suffix: "+", label: "Prestigious Clients" },
+  { target: 15, suffix: "+", label: "Industry Awards" },
 ];
+
+const Counter = ({ to, suffix = "", duration = 1800 }: { to: number; suffix?: string; duration?: number }) => {
+  const ref = useRef<HTMLSpanElement>(null);
+  const inView = useInView(ref, { once: true, margin: "-50px" });
+  const [value, setValue] = useState(0);
+
+  useEffect(() => {
+    if (!inView) return;
+    const start = performance.now();
+    let raf = 0;
+    const tick = (now: number) => {
+      const t = Math.min((now - start) / duration, 1);
+      const eased = 1 - Math.pow(1 - t, 3);
+      setValue(Math.round(to * eased));
+      if (t < 1) raf = requestAnimationFrame(tick);
+    };
+    raf = requestAnimationFrame(tick);
+    return () => cancelAnimationFrame(raf);
+  }, [inView, to, duration]);
+
+  return (
+    <span ref={ref}>
+      {value}
+      {suffix}
+    </span>
+  );
+};
 
 const values = [
   {
@@ -159,7 +187,7 @@ export default function WhoWeArePage() {
                   style={{ padding: '40px 20px' }}
                 >
                   <span className="block font-serif text-4xl md:text-5xl text-[#71B8E3]" style={{ marginBottom: '8px' }}>
-                    {stat.number}
+                    <Counter to={stat.target} suffix={stat.suffix} />
                   </span>
                   <span className="font-sans text-xs uppercase tracking-[0.2em] text-[#D4D4D4]/60">
                     {stat.label}

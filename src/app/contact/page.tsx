@@ -9,23 +9,28 @@ import Link from "next/link";
 
 const MOTION_EASE = [0.76, 0, 0.24, 1] as const;
 
-const contactInfo = [
+const contactInfo: {
+  icon: typeof Phone;
+  title: string;
+  lines: { text: string; href?: string }[];
+  subtitle: string;
+}[] = [
   {
     icon: Phone,
-    title: "Call Us",
-    details: ["+1 234 567 890"],
-    subtitle: "Mon – Fri, 9am – 6pm",
+    title: "WhatsApp Us",
+    lines: [{ text: "+966 59 505 3003", href: "https://wa.me/966595053003" }],
+    subtitle: "Tap to chat on WhatsApp",
   },
   {
     icon: MapPin,
     title: "Visit Us",
-    details: ["123 Creative Street", "Design District", "New York, NY 10001"],
+    lines: [{ text: "Saudi Arabia" }],
     subtitle: "By appointment only",
   },
   {
     icon: Mail,
     title: "Email Us",
-    details: ["hello@initio.com"],
+    lines: [{ text: "info@initio.sa", href: "mailto:info@initio.sa" }],
     subtitle: "We respond within 24 hours",
   },
 ];
@@ -104,11 +109,23 @@ export default function ContactPage() {
                 <h4 className="font-serif text-xl text-white" style={{ marginBottom: '12px' }}>
                   {info.title}
                 </h4>
-                {info.details.map((detail) => (
-                  <p key={detail} className="font-sans text-sm text-[#D4D4D4]/80 leading-relaxed">
-                    {detail}
-                  </p>
-                ))}
+                {info.lines.map((line) =>
+                  line.href ? (
+                    <a
+                      key={line.text}
+                      href={line.href}
+                      target={line.href.startsWith("http") ? "_blank" : undefined}
+                      rel={line.href.startsWith("http") ? "noopener noreferrer" : undefined}
+                      className="block font-sans text-sm text-[#D4D4D4]/80 hover:text-[#71B8E3] transition-colors duration-300"
+                    >
+                      {line.text}
+                    </a>
+                  ) : (
+                    <p key={line.text} className="font-sans text-sm text-[#D4D4D4]/80 leading-relaxed">
+                      {line.text}
+                    </p>
+                  )
+                )}
                 <p className="font-sans text-xs text-[#71B8E3]/60" style={{ marginTop: '12px' }}>
                   {info.subtitle}
                 </p>

@@ -58,7 +58,7 @@ const Feature197 = ({ features = defaultFeatures }: Feature197Props) => {
           </div>
           <h2 className="mt-8 font-serif text-[clamp(2.5rem,5vw,4.5rem)] font-light leading-[1.05] tracking-[-0.015em] text-white">
             Three Pillars <br/>
-            <span className="italic text-[#71B8E3]">of Impact</span>
+            <span className="text-[#71B8E3]">of Impact</span>
           </h2>
         </div>
         <div className="mb-12 flex w-full items-start justify-between gap-12">

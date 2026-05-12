@@ -92,10 +92,9 @@ export default function ProcessPage() {
           <p className="font-sans text-[11px] uppercase tracking-[0.5em] text-[#71B8E3] font-medium" style={{ marginBottom: '20px' }}>
             Our Process
           </p>
-          <h1 className="font-serif text-5xl md:text-7xl lg:text-8xl text-white leading-[1.05]" style={{ marginBottom: '30px' }}>
-            How We Bring
-            <br />
-            <span className="italic text-[#71B8E3]">Ideas to Life</span>
+          <h1 className="font-serif text-4xl sm:text-5xl md:text-7xl lg:text-8xl text-white leading-[1.05]" style={{ marginBottom: '30px' }}>
+            <span className="block whitespace-nowrap">How We Bring</span>
+            <span className="block whitespace-nowrap italic text-[#71B8E3]">Ideas to Life</span>
           </h1>
           <div className="max-w-[52ch] text-center font-sans text-base md:text-lg font-light leading-relaxed text-[#D4D4D4]/80">
             <VerticalCutReveal

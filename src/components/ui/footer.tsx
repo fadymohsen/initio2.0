@@ -54,7 +54,7 @@ export const Footer = () => {
           <div className="flex gap-16 md:gap-24 mt-8 md:mt-0">
             <div className="flex flex-col gap-4">
               <span className="font-sans text-[10px] tracking-[0.3em] uppercase text-[#71B8E3] mb-2">Navigation</span>
-              <Link href="/who-we-are" className="font-sans text-sm text-[#D4D4D4] hover:text-white transition-colors">Who We Are</Link>
+              <Link href="/who-we-are" className="font-sans text-sm text-[#D4D4D4] hover:text-white transition-colors">About Us</Link>
               <Link href="/process" className="font-sans text-sm text-[#D4D4D4] hover:text-white transition-colors">Our Process</Link>
               {/* <Link href="/portfolio" className="font-sans text-sm text-[#D4D4D4] hover:text-white transition-colors">Portfolio</Link> */}
             </div>

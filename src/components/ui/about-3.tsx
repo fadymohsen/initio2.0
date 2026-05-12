@@ -37,7 +37,7 @@ interface About3Props {
 }
 
 export const About3 = ({
-  title = "Who We Are",
+  title = "About Us",
   description = "initio is a Saudi-based experience and production company built on a simple promise: we plan, you shine.\n\nWe bring event management, technology, branding, and digital production under one roof, so our clients have a single team and a single standard across every part of their experience.",
   mainImage = {
     src: "https://images.unsplash.com/photo-1511556532299-8f662fc26c06?q=80&w=2940&auto=format&fit=crop",

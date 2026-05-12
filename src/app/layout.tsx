@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { EB_Garamond, Montserrat, Poppins } from "next/font/google";
+import { EB_Garamond, Montserrat } from "next/font/google";
 import "./globals.css";
 import { headers } from "next/headers";
 import { SmoothScrollProvider } from "@/components/providers/SmoothScrollProvider";
@@ -17,13 +17,6 @@ const ebGaramond = EB_Garamond({
 const montserrat = Montserrat({
   variable: "--font-montserrat",
   subsets: ["latin"],
-  display: "swap",
-});
-
-const poppins = Poppins({
-  variable: "--font-poppins",
-  subsets: ["latin"],
-  weight: ["400", "500", "600", "700"],
   display: "swap",
 });
 
@@ -65,7 +58,7 @@ export default async function RootLayout({
   return (
     <html
       lang="en"
-      className={`${ebGaramond.variable} ${montserrat.variable} ${poppins.variable} antialiased${isAdmin ? '' : ' selection:bg-accent selection:text-primary cursor-none'}`}
+      className={`${ebGaramond.variable} ${montserrat.variable} antialiased${isAdmin ? '' : ' selection:bg-accent selection:text-primary cursor-none'}`}
     >
       <head>
         <link rel="preload" href="/videos/initio-hero-v1.7.mp4" as="video" type="video/mp4" />

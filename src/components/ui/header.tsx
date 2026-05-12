@@ -190,7 +190,7 @@ export const Header = () => {
           className="absolute bottom-16 text-center z-[110]"
         >
           <p className="font-sans text-[10px] tracking-[0.4em] uppercase text-[#71B8E3] mb-4">Get in Touch</p>
-          <a href="mailto:hello@initio.com" className="font-sans text-sm text-[#D4D4D4] hover:text-white transition-colors">hello@initio.com</a>
+          <a href="mailto:info@initio.sa" className="font-sans text-sm text-[#D4D4D4] hover:text-white transition-colors">info@initio.sa</a>
         </motion.div>
       </motion.div>
     </header>

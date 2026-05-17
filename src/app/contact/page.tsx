@@ -163,112 +163,147 @@ export default function ContactPage() {
 
       {/* ── CONTACT FORM ── */}
       <section className="w-full border-t border-white/5 flex justify-center" style={{ paddingTop: '100px', paddingBottom: '100px' }}>
-        <div className="w-full max-w-4xl" style={{ paddingLeft: '32px', paddingRight: '32px' }}>
-          <div className="grid grid-cols-1 lg:grid-cols-5 gap-16">
-            {/* Left side: intro */}
-            <motion.div
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.7, ease: MOTION_EASE }}
-              className="lg:col-span-2"
-            >
-              <p className="font-sans text-[11px] uppercase tracking-[0.4em] text-[#71B8E3]/80" style={{ marginBottom: '16px' }}>
-                Get in Touch
-              </p>
-              <h2 className="font-serif text-3xl md:text-4xl text-white" style={{ marginBottom: '20px' }}>
-                Tell us about your project
-              </h2>
-              <p className="font-sans text-[#D4D4D4]/70 leading-relaxed" style={{ marginBottom: '32px' }}>
-                Whether you&apos;re planning an event, building a brand, or launching a campaign, we&apos;re here to make it extraordinary.
-              </p>
+        <div className="w-full max-w-5xl" style={{ paddingLeft: '24px', paddingRight: '24px' }}>
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.7, ease: MOTION_EASE }}
+            className="relative border border-white/[0.06] rounded-2xl bg-white/[0.02] backdrop-blur-sm overflow-hidden"
+          >
+            {/* Subtle glow accent */}
+            <div className="absolute -top-32 -right-32 w-64 h-64 bg-[#71B8E3]/[0.04] rounded-full blur-3xl pointer-events-none" />
+            <div className="absolute -bottom-32 -left-32 w-64 h-64 bg-[#71B8E3]/[0.03] rounded-full blur-3xl pointer-events-none" />
 
-              {/* Office hours */}
-              <div className="border border-white/5 rounded-lg" style={{ padding: '24px' }}>
-                <div className="flex items-center gap-3" style={{ marginBottom: '12px' }}>
-                  <Clock size={16} className="text-[#71B8E3]" />
-                  <span className="font-sans text-xs uppercase tracking-[0.2em] text-[#71B8E3]">
-                    Office Hours
-                  </span>
-                </div>
-                <div className="space-y-2 font-sans text-sm text-[#D4D4D4]/70">
-                  <p>Monday to Friday: 9:00 AM – 6:00 PM</p>
-                  <p>Saturday: 10:00 AM – 2:00 PM</p>
-                  <p>Sunday: Closed</p>
-                </div>
-              </div>
-            </motion.div>
-
-            {/* Right side: form */}
-            <motion.div
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.7, delay: 0.2, ease: MOTION_EASE }}
-              className="lg:col-span-3"
-            >
-              {submitted ? (
-                <div className="border border-[#71B8E3]/20 rounded-lg text-center" style={{ padding: '60px 30px' }}>
-                  <div className="w-16 h-16 rounded-full border border-[#71B8E3]/30 flex items-center justify-center mx-auto" style={{ marginBottom: '24px' }}>
-                    <Mail size={28} className="text-[#71B8E3]" />
-                  </div>
-                  <h3 className="font-serif text-3xl text-white" style={{ marginBottom: '12px' }}>
-                    Thank you!
-                  </h3>
-                  <p className="font-sans text-[#D4D4D4]/70 max-w-sm mx-auto">
-                    Your message has been sent. We&apos;ll get back to you within 24 hours.
+            <div className="relative grid grid-cols-1 lg:grid-cols-12">
+              {/* Left side: intro */}
+              <div className="lg:col-span-5 flex flex-col justify-between border-b lg:border-b-0 lg:border-r border-white/[0.06]" style={{ padding: '40px 32px' }}>
+                <div>
+                  <p className="font-sans text-[11px] uppercase tracking-[0.5em] text-[#71B8E3]" style={{ marginBottom: '20px' }}>
+                    Get in Touch
+                  </p>
+                  <h2 className="font-serif text-3xl md:text-4xl lg:text-[2.6rem] text-white leading-[1.15]" style={{ marginBottom: '20px' }}>
+                    Tell us about
+                    <br />
+                    your project
+                  </h2>
+                  <p className="font-sans text-[15px] text-[#D4D4D4]/60 leading-relaxed max-w-[34ch]" style={{ marginBottom: '40px' }}>
+                    Whether you&apos;re planning an event, building a brand, or launching a campaign &mdash; we&apos;re here to make it extraordinary.
                   </p>
                 </div>
-              ) : (
-                <form onSubmit={handleSubmit} className="flex flex-col" style={{ gap: '20px' }}>
-                  <div className="grid grid-cols-1 md:grid-cols-2" style={{ gap: '20px' }}>
-                    <input
-                      type="text"
-                      name="name"
-                      placeholder="YOUR NAME"
-                      required
-                      className="w-full bg-white/5 border border-white/10 rounded-lg font-sans text-sm text-white placeholder:text-[#D4D4D4]/30 placeholder:tracking-[0.15em] placeholder:text-xs focus:outline-none focus:border-[#71B8E3]/40 transition-colors duration-300"
-                      style={{ padding: '22px 24px' }}
-                    />
-                    <input
-                      type="email"
-                      name="email"
-                      placeholder="YOUR EMAIL"
-                      required
-                      className="w-full bg-white/5 border border-white/10 rounded-lg font-sans text-sm text-white placeholder:text-[#D4D4D4]/30 placeholder:tracking-[0.15em] placeholder:text-xs focus:outline-none focus:border-[#71B8E3]/40 transition-colors duration-300"
-                      style={{ padding: '22px 24px' }}
-                    />
+
+                {/* Office hours */}
+                <div className="bg-white/[0.03] border border-white/[0.06] rounded-xl" style={{ padding: '24px' }}>
+                  <div className="flex items-center gap-3" style={{ marginBottom: '16px' }}>
+                    <div className="w-8 h-8 rounded-full bg-[#71B8E3]/10 flex items-center justify-center">
+                      <Clock size={14} className="text-[#71B8E3]" />
+                    </div>
+                    <span className="font-sans text-[11px] uppercase tracking-[0.3em] text-[#71B8E3]/90 font-medium">
+                      Office Hours
+                    </span>
                   </div>
-                  <input
-                    type="text"
-                    name="subject"
-                    placeholder="SUBJECT"
-                    className="w-full bg-white/5 border border-white/10 rounded-lg font-sans text-sm text-white placeholder:text-[#D4D4D4]/30 placeholder:tracking-[0.15em] placeholder:text-xs focus:outline-none focus:border-[#71B8E3]/40 transition-colors duration-300"
-                    style={{ padding: '22px 24px' }}
-                  />
-                  <textarea
-                    name="message"
-                    placeholder="TELL US ABOUT YOUR PROJECT"
-                    required
-                    rows={6}
-                    className="w-full bg-white/5 border border-white/10 rounded-lg font-sans text-sm text-white placeholder:text-[#D4D4D4]/30 placeholder:tracking-[0.15em] placeholder:text-xs focus:outline-none focus:border-[#71B8E3]/40 transition-colors duration-300 resize-vertical"
-                    style={{ padding: '20px 24px' }}
-                  />
-                  {error && (
-                    <p className="font-sans text-sm text-red-400">{error}</p>
-                  )}
-                  <button
-                    type="submit"
-                    disabled={loading}
-                    className="inline-flex items-center justify-center gap-2 bg-[#71B8E3] text-[#010F24] font-sans text-xs tracking-[0.2em] uppercase hover:bg-white transition-colors duration-300 rounded-lg self-start disabled:opacity-50 disabled:cursor-not-allowed"
-                    style={{ padding: '10px 15px' }}
-                  >
-                    {loading ? "Sending..." : "Send Message"} {!loading && <ArrowUpRight size={16} />}
-                  </button>
-                </form>
-              )}
-            </motion.div>
-          </div>
+                  <div className="space-y-3 font-sans text-sm text-[#D4D4D4]/60">
+                    <div className="flex justify-between">
+                      <span>Mon – Fri</span>
+                      <span className="text-[#D4D4D4]/80">9:00 AM – 6:00 PM</span>
+                    </div>
+                    <div className="flex justify-between">
+                      <span>Saturday</span>
+                      <span className="text-[#D4D4D4]/80">10:00 AM – 2:00 PM</span>
+                    </div>
+                    <div className="flex justify-between">
+                      <span>Sunday</span>
+                      <span className="text-[#D4D4D4]/40">Closed</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              {/* Right side: form */}
+              <div className="lg:col-span-7" style={{ padding: '40px 32px' }}>
+                {submitted ? (
+                  <div className="flex flex-col items-center justify-center text-center h-full" style={{ padding: '40px 20px' }}>
+                    <div className="w-20 h-20 rounded-full bg-[#71B8E3]/10 border border-[#71B8E3]/20 flex items-center justify-center" style={{ marginBottom: '28px' }}>
+                      <Mail size={32} className="text-[#71B8E3]" />
+                    </div>
+                    <h3 className="font-serif text-3xl text-white" style={{ marginBottom: '12px' }}>
+                      Thank you!
+                    </h3>
+                    <p className="font-sans text-[#D4D4D4]/60 max-w-sm">
+                      Your message has been sent. We&apos;ll get back to you within 24 hours.
+                    </p>
+                  </div>
+                ) : (
+                  <form onSubmit={handleSubmit} className="flex flex-col" style={{ gap: '16px' }}>
+                    <div className="grid grid-cols-1 md:grid-cols-2" style={{ gap: '16px' }}>
+                      <div className="relative group">
+                        <label className="block font-sans text-[10px] uppercase tracking-[0.3em] text-[#D4D4D4]/40 group-focus-within:text-[#71B8E3]/70 transition-colors duration-300" style={{ marginBottom: '8px' }}>
+                          Name
+                        </label>
+                        <input
+                          type="text"
+                          name="name"
+                          placeholder="John Doe"
+                          required
+                          className="w-full bg-white/[0.04] border border-white/[0.08] rounded-xl font-sans text-sm text-white placeholder:text-[#D4D4D4]/20 focus:outline-none focus:border-[#71B8E3]/40 focus:bg-white/[0.06] transition-all duration-300"
+                          style={{ padding: '16px 20px' }}
+                        />
+                      </div>
+                      <div className="relative group">
+                        <label className="block font-sans text-[10px] uppercase tracking-[0.3em] text-[#D4D4D4]/40 group-focus-within:text-[#71B8E3]/70 transition-colors duration-300" style={{ marginBottom: '8px' }}>
+                          Email
+                        </label>
+                        <input
+                          type="email"
+                          name="email"
+                          placeholder="john@example.com"
+                          required
+                          className="w-full bg-white/[0.04] border border-white/[0.08] rounded-xl font-sans text-sm text-white placeholder:text-[#D4D4D4]/20 focus:outline-none focus:border-[#71B8E3]/40 focus:bg-white/[0.06] transition-all duration-300"
+                          style={{ padding: '16px 20px' }}
+                        />
+                      </div>
+                    </div>
+                    <div className="relative group">
+                      <label className="block font-sans text-[10px] uppercase tracking-[0.3em] text-[#D4D4D4]/40 group-focus-within:text-[#71B8E3]/70 transition-colors duration-300" style={{ marginBottom: '8px' }}>
+                        Subject
+                      </label>
+                      <input
+                        type="text"
+                        name="subject"
+                        placeholder="What can we help you with?"
+                        className="w-full bg-white/[0.04] border border-white/[0.08] rounded-xl font-sans text-sm text-white placeholder:text-[#D4D4D4]/20 focus:outline-none focus:border-[#71B8E3]/40 focus:bg-white/[0.06] transition-all duration-300"
+                        style={{ padding: '16px 20px' }}
+                      />
+                    </div>
+                    <div className="relative group">
+                      <label className="block font-sans text-[10px] uppercase tracking-[0.3em] text-[#D4D4D4]/40 group-focus-within:text-[#71B8E3]/70 transition-colors duration-300" style={{ marginBottom: '8px' }}>
+                        Message
+                      </label>
+                      <textarea
+                        name="message"
+                        placeholder="Tell us about your vision..."
+                        required
+                        rows={5}
+                        className="w-full bg-white/[0.04] border border-white/[0.08] rounded-xl font-sans text-sm text-white placeholder:text-[#D4D4D4]/20 focus:outline-none focus:border-[#71B8E3]/40 focus:bg-white/[0.06] transition-all duration-300 resize-none"
+                        style={{ padding: '16px 20px' }}
+                      />
+                    </div>
+                    {error && (
+                      <p className="font-sans text-sm text-red-400">{error}</p>
+                    )}
+                    <button
+                      type="submit"
+                      disabled={loading}
+                      className="w-full md:w-auto md:self-end inline-flex items-center justify-center gap-3 bg-[#71B8E3] text-[#010F24] font-sans text-xs font-semibold tracking-[0.2em] uppercase rounded-xl hover:bg-white hover:shadow-[0_0_30px_rgba(113,184,227,0.15)] transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed"
+                      style={{ padding: '16px 36px', marginTop: '8px' }}
+                    >
+                      {loading ? "Sending..." : "Send Message"} {!loading && <ArrowUpRight size={16} strokeWidth={2.5} />}
+                    </button>
+                  </form>
+                )}
+              </div>
+            </div>
+          </motion.div>
         </div>
       </section>
 

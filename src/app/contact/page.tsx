@@ -37,10 +37,36 @@ const contactInfo: {
 
 export default function ContactPage() {
   const [submitted, setSubmitted] = useState(false);
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState("");
 
-  const handleSubmit = (e: FormEvent) => {
+  const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    setSubmitted(true);
+    setLoading(true);
+    setError("");
+
+    const form = e.currentTarget;
+    const formData = new FormData(form);
+
+    try {
+      const res = await fetch("/api/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          name: formData.get("name"),
+          email: formData.get("email"),
+          subject: formData.get("subject"),
+          message: formData.get("message"),
+        }),
+      });
+
+      if (!res.ok) throw new Error("Failed to send");
+      setSubmitted(true);
+    } catch {
+      setError("Something went wrong. Please try again.");
+    } finally {
+      setLoading(false);
+    }
   };
 
   return (
@@ -198,6 +224,7 @@ export default function ContactPage() {
                   <div className="grid grid-cols-1 md:grid-cols-2" style={{ gap: '20px' }}>
                     <input
                       type="text"
+                      name="name"
                       placeholder="YOUR NAME"
                       required
                       className="w-full bg-white/5 border border-white/10 rounded-lg font-sans text-sm text-white placeholder:text-[#D4D4D4]/30 placeholder:tracking-[0.15em] placeholder:text-xs focus:outline-none focus:border-[#71B8E3]/40 transition-colors duration-300"
@@ -205,6 +232,7 @@ export default function ContactPage() {
                     />
                     <input
                       type="email"
+                      name="email"
                       placeholder="YOUR EMAIL"
                       required
                       className="w-full bg-white/5 border border-white/10 rounded-lg font-sans text-sm text-white placeholder:text-[#D4D4D4]/30 placeholder:tracking-[0.15em] placeholder:text-xs focus:outline-none focus:border-[#71B8E3]/40 transition-colors duration-300"
@@ -213,23 +241,29 @@ export default function ContactPage() {
                   </div>
                   <input
                     type="text"
+                    name="subject"
                     placeholder="SUBJECT"
                     className="w-full bg-white/5 border border-white/10 rounded-lg font-sans text-sm text-white placeholder:text-[#D4D4D4]/30 placeholder:tracking-[0.15em] placeholder:text-xs focus:outline-none focus:border-[#71B8E3]/40 transition-colors duration-300"
                     style={{ padding: '22px 24px' }}
                   />
                   <textarea
+                    name="message"
                     placeholder="TELL US ABOUT YOUR PROJECT"
                     required
                     rows={6}
                     className="w-full bg-white/5 border border-white/10 rounded-lg font-sans text-sm text-white placeholder:text-[#D4D4D4]/30 placeholder:tracking-[0.15em] placeholder:text-xs focus:outline-none focus:border-[#71B8E3]/40 transition-colors duration-300 resize-vertical"
                     style={{ padding: '20px 24px' }}
                   />
+                  {error && (
+                    <p className="font-sans text-sm text-red-400">{error}</p>
+                  )}
                   <button
                     type="submit"
-                    className="inline-flex items-center justify-center gap-2 bg-[#71B8E3] text-[#010F24] font-sans text-xs tracking-[0.2em] uppercase hover:bg-white transition-colors duration-300 rounded-lg self-start"
+                    disabled={loading}
+                    className="inline-flex items-center justify-center gap-2 bg-[#71B8E3] text-[#010F24] font-sans text-xs tracking-[0.2em] uppercase hover:bg-white transition-colors duration-300 rounded-lg self-start disabled:opacity-50 disabled:cursor-not-allowed"
                     style={{ padding: '10px 15px' }}
                   >
-                    Send Message <ArrowUpRight size={16} />
+                    {loading ? "Sending..." : "Send Message"} {!loading && <ArrowUpRight size={16} />}
                   </button>
                 </form>
               )}

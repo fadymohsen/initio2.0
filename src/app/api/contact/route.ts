@@ -59,13 +59,28 @@ function emailWrapper(content: string) {
           <tr>
             <td align="center" style="padding-top:32px;padding-bottom:16px;">
               <table role="presentation" cellspacing="0" cellpadding="0">
+                <!-- Social icons -->
                 <tr>
-                  <td align="center" style="padding-bottom:16px;">
-                    <a href="https://wa.me/966595053003" style="text-decoration:none;color:${BRAND.textMuted};font-size:13px;margin:0 10px;">WhatsApp</a>
-                    <span style="color:${BRAND.border};">&nbsp;&middot;&nbsp;</span>
-                    <a href="mailto:info@initio.sa" style="text-decoration:none;color:${BRAND.textMuted};font-size:13px;margin:0 10px;">Email</a>
-                    <span style="color:${BRAND.border};">&nbsp;&middot;&nbsp;</span>
-                    <a href="${BRAND.siteUrl}" style="text-decoration:none;color:${BRAND.textMuted};font-size:13px;margin:0 10px;">Website</a>
+                  <td align="center" style="padding-bottom:20px;">
+                    <table role="presentation" cellspacing="0" cellpadding="0">
+                      <tr>
+                        <td style="padding:0 8px;">
+                          <a href="https://www.instagram.com/initio.sa" target="_blank" style="text-decoration:none;">
+                            <img src="https://cdn-icons-png.flaticon.com/512/174/174855.png" alt="Instagram" width="28" height="28" style="display:block;border:0;border-radius:6px;" />
+                          </a>
+                        </td>
+                        <td style="padding:0 8px;">
+                          <a href="https://www.linkedin.com/company/initio-sa" target="_blank" style="text-decoration:none;">
+                            <img src="https://cdn-icons-png.flaticon.com/512/174/174857.png" alt="LinkedIn" width="28" height="28" style="display:block;border:0;border-radius:6px;" />
+                          </a>
+                        </td>
+                        <td style="padding:0 8px;">
+                          <a href="https://www.facebook.com/initio.sa" target="_blank" style="text-decoration:none;">
+                            <img src="https://cdn-icons-png.flaticon.com/512/174/174848.png" alt="Facebook" width="28" height="28" style="display:block;border:0;border-radius:6px;" />
+                          </a>
+                        </td>
+                      </tr>
+                    </table>
                   </td>
                 </tr>
                 <tr>
@@ -188,14 +203,27 @@ function clientEmailHtml(name: string) {
           </p>
 
           <!-- CTA buttons -->
-          <table role="presentation" cellspacing="0" cellpadding="0" style="margin-bottom:36px;">
+          <table role="presentation" cellspacing="0" cellpadding="0" width="100%" style="margin-bottom:36px;">
             <tr>
-              <td style="border-radius:10px;background-color:${BRAND.accent};margin-right:12px;">
-                <a href="${BRAND.siteUrl}" style="display:inline-block;padding:14px 28px;font-size:13px;font-weight:600;color:${BRAND.navy};text-decoration:none;letter-spacing:1px;text-transform:uppercase;">Visit Our Website</a>
+              <td style="padding-bottom:12px;">
+                <table role="presentation" cellspacing="0" cellpadding="0" width="100%">
+                  <tr>
+                    <td align="center" style="border-radius:10px;background-color:${BRAND.accent};">
+                      <a href="${BRAND.siteUrl}" style="display:block;padding:14px 28px;font-size:13px;font-weight:600;color:${BRAND.navy};text-decoration:none;letter-spacing:1px;text-transform:uppercase;">Visit Our Website</a>
+                    </td>
+                  </tr>
+                </table>
               </td>
-              <td style="width:12px;"></td>
-              <td style="border-radius:10px;border:1px solid ${BRAND.border};">
-                <a href="https://wa.me/966595053003" style="display:inline-block;padding:13px 28px;font-size:13px;font-weight:600;color:${BRAND.accent};text-decoration:none;letter-spacing:1px;text-transform:uppercase;">WhatsApp Us</a>
+            </tr>
+            <tr>
+              <td>
+                <table role="presentation" cellspacing="0" cellpadding="0" width="100%">
+                  <tr>
+                    <td align="center" style="border-radius:10px;border:1px solid ${BRAND.border};">
+                      <a href="https://wa.me/966595053003" style="display:block;padding:13px 28px;font-size:13px;font-weight:600;color:${BRAND.accent};text-decoration:none;letter-spacing:1px;text-transform:uppercase;">WhatsApp Us</a>
+                    </td>
+                  </tr>
+                </table>
               </td>
             </tr>
           </table>

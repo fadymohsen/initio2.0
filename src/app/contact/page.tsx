@@ -1,10 +1,10 @@
 "use client";
 
-import { useState, FormEvent } from "react";
-import { motion } from "framer-motion";
+import { useState, FormEvent, useRef } from "react";
+import { motion, AnimatePresence } from "framer-motion";
 import { SparklesCore } from "@/components/ui/sparkles";
 import { VerticalCutReveal } from "@/components/ui/vertical-cut-reveal";
-import { ArrowUpRight, Mail, MapPin, Phone, Clock } from "lucide-react";
+import { ArrowUpRight, Mail, MapPin, Phone, Clock, AlertCircle } from "lucide-react";
 import Link from "next/link";
 
 const MOTION_EASE = [0.76, 0, 0.24, 1] as const;
@@ -35,28 +35,105 @@ const contactInfo: {
   },
 ];
 
+type FieldErrors = Partial<Record<"name" | "email" | "message", string>>;
+
+function FieldError({ message }: { message?: string }) {
+  return (
+    <AnimatePresence>
+      {message && (
+        <motion.div
+          initial={{ opacity: 0, y: -6, height: 0 }}
+          animate={{ opacity: 1, y: 0, height: "auto" }}
+          exit={{ opacity: 0, y: -6, height: 0 }}
+          transition={{ duration: 0.2, ease: [0.23, 1, 0.32, 1] }}
+          className="flex items-center gap-1.5 overflow-hidden"
+          style={{ marginTop: '6px' }}
+        >
+          <AlertCircle size={12} className="text-[#f87171] shrink-0" />
+          <span className="font-sans text-[12px] text-[#f87171]">{message}</span>
+        </motion.div>
+      )}
+    </AnimatePresence>
+  );
+}
+
 export default function ContactPage() {
   const [submitted, setSubmitted] = useState(false);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState("");
+  const [fieldErrors, setFieldErrors] = useState<FieldErrors>({});
+  const [touched, setTouched] = useState<Record<string, boolean>>({});
+  const formRef = useRef<HTMLFormElement>(null);
+
+  const validateField = (name: string, value: string): string | undefined => {
+    switch (name) {
+      case "name":
+        if (!value.trim()) return "Please enter your name";
+        if (value.trim().length < 2) return "Name must be at least 2 characters";
+        return undefined;
+      case "email":
+        if (!value.trim()) return "Please enter your email";
+        if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value.trim())) return "Please enter a valid email address";
+        return undefined;
+      case "message":
+        if (!value.trim()) return "Please enter your message";
+        if (value.trim().length < 10) return "Message must be at least 10 characters";
+        return undefined;
+      default:
+        return undefined;
+    }
+  };
+
+  const handleBlur = (name: string, value: string) => {
+    setTouched((prev) => ({ ...prev, [name]: true }));
+    const err = validateField(name, value);
+    setFieldErrors((prev) => ({ ...prev, [name]: err }));
+  };
+
+  const handleChange = (name: string, value: string) => {
+    if (touched[name]) {
+      const err = validateField(name, value);
+      setFieldErrors((prev) => ({ ...prev, [name]: err }));
+    }
+  };
 
   const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    setLoading(true);
     setError("");
 
     const form = e.currentTarget;
     const formData = new FormData(form);
+    const name = (formData.get("name") as string) || "";
+    const email = (formData.get("email") as string) || "";
+    const message = (formData.get("message") as string) || "";
+
+    const errors: FieldErrors = {
+      name: validateField("name", name),
+      email: validateField("email", email),
+      message: validateField("message", message),
+    };
+
+    // Remove undefined entries
+    const activeErrors = Object.fromEntries(
+      Object.entries(errors).filter(([, v]) => v !== undefined)
+    ) as FieldErrors;
+
+    setFieldErrors(activeErrors);
+    setTouched({ name: true, email: true, message: true });
+
+    if (Object.keys(activeErrors).length > 0) return;
+
+    setLoading(true);
 
     try {
       const res = await fetch("/api/contact", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
-          name: formData.get("name"),
-          email: formData.get("email"),
+          name,
+          email,
           subject: formData.get("subject"),
-          message: formData.get("message"),
+          message,
         }),
       });
 
@@ -234,38 +311,40 @@ export default function ContactPage() {
                     </p>
                   </div>
                 ) : (
-                  <form onSubmit={handleSubmit} className="flex flex-col" style={{ gap: '16px' }}>
-                    <div className="grid grid-cols-1 md:grid-cols-2" style={{ gap: '16px' }}>
-                      <div className="relative group">
-                        <label className="block font-sans text-[10px] uppercase tracking-[0.3em] text-[#D4D4D4]/40 group-focus-within:text-[#71B8E3]/70 transition-colors duration-300" style={{ marginBottom: '8px' }}>
-                          Name
-                        </label>
-                        <input
-                          type="text"
-                          name="name"
-                          placeholder="John Doe"
-                          required
-                          className="w-full bg-white/[0.04] border border-white/[0.08] rounded-xl font-sans text-sm text-white placeholder:text-[#D4D4D4]/20 focus:outline-none focus:border-[#71B8E3]/40 focus:bg-white/[0.06] transition-all duration-300"
-                          style={{ padding: '16px 20px' }}
-                        />
-                      </div>
-                      <div className="relative group">
-                        <label className="block font-sans text-[10px] uppercase tracking-[0.3em] text-[#D4D4D4]/40 group-focus-within:text-[#71B8E3]/70 transition-colors duration-300" style={{ marginBottom: '8px' }}>
-                          Email
-                        </label>
-                        <input
-                          type="email"
-                          name="email"
-                          placeholder="john@example.com"
-                          required
-                          className="w-full bg-white/[0.04] border border-white/[0.08] rounded-xl font-sans text-sm text-white placeholder:text-[#D4D4D4]/20 focus:outline-none focus:border-[#71B8E3]/40 focus:bg-white/[0.06] transition-all duration-300"
-                          style={{ padding: '16px 20px' }}
-                        />
-                      </div>
+                  <form ref={formRef} onSubmit={handleSubmit} noValidate className="flex flex-col" style={{ gap: '16px' }}>
+                    <div className="relative group">
+                      <label className={`block font-sans text-[10px] uppercase tracking-[0.3em] transition-colors duration-300 ${fieldErrors.name ? 'text-[#f87171]/80' : 'text-[#D4D4D4]/40 group-focus-within:text-[#71B8E3]/70'}`} style={{ marginBottom: '8px' }}>
+                        Name
+                      </label>
+                      <input
+                        type="text"
+                        name="name"
+                        placeholder="John Doe"
+                        onBlur={(e) => handleBlur("name", e.target.value)}
+                        onChange={(e) => handleChange("name", e.target.value)}
+                        className={`w-full bg-white/[0.04] border rounded-xl font-sans text-sm text-white placeholder:text-[#D4D4D4]/20 focus:outline-none transition-all duration-300 ${fieldErrors.name ? 'border-[#f87171]/40 bg-[#f87171]/[0.03] focus:border-[#f87171]/60' : 'border-white/[0.08] focus:border-[#71B8E3]/40 focus:bg-white/[0.06]'}`}
+                        style={{ padding: '16px 20px' }}
+                      />
+                      <FieldError message={fieldErrors.name} />
+                    </div>
+                    <div className="relative group">
+                      <label className={`block font-sans text-[10px] uppercase tracking-[0.3em] transition-colors duration-300 ${fieldErrors.email ? 'text-[#f87171]/80' : 'text-[#D4D4D4]/40 group-focus-within:text-[#71B8E3]/70'}`} style={{ marginBottom: '8px' }}>
+                        Email
+                      </label>
+                      <input
+                        type="email"
+                        name="email"
+                        placeholder="john@example.com"
+                        onBlur={(e) => handleBlur("email", e.target.value)}
+                        onChange={(e) => handleChange("email", e.target.value)}
+                        className={`w-full bg-white/[0.04] border rounded-xl font-sans text-sm text-white placeholder:text-[#D4D4D4]/20 focus:outline-none transition-all duration-300 ${fieldErrors.email ? 'border-[#f87171]/40 bg-[#f87171]/[0.03] focus:border-[#f87171]/60' : 'border-white/[0.08] focus:border-[#71B8E3]/40 focus:bg-white/[0.06]'}`}
+                        style={{ padding: '16px 20px' }}
+                      />
+                      <FieldError message={fieldErrors.email} />
                     </div>
                     <div className="relative group">
                       <label className="block font-sans text-[10px] uppercase tracking-[0.3em] text-[#D4D4D4]/40 group-focus-within:text-[#71B8E3]/70 transition-colors duration-300" style={{ marginBottom: '8px' }}>
-                        Subject
+                        Subject <span className="normal-case tracking-normal text-[#D4D4D4]/25">(optional)</span>
                       </label>
                       <input
                         type="text"
@@ -276,21 +355,35 @@ export default function ContactPage() {
                       />
                     </div>
                     <div className="relative group">
-                      <label className="block font-sans text-[10px] uppercase tracking-[0.3em] text-[#D4D4D4]/40 group-focus-within:text-[#71B8E3]/70 transition-colors duration-300" style={{ marginBottom: '8px' }}>
+                      <label className={`block font-sans text-[10px] uppercase tracking-[0.3em] transition-colors duration-300 ${fieldErrors.message ? 'text-[#f87171]/80' : 'text-[#D4D4D4]/40 group-focus-within:text-[#71B8E3]/70'}`} style={{ marginBottom: '8px' }}>
                         Message
                       </label>
                       <textarea
                         name="message"
                         placeholder="Tell us about your vision..."
-                        required
                         rows={5}
-                        className="w-full bg-white/[0.04] border border-white/[0.08] rounded-xl font-sans text-sm text-white placeholder:text-[#D4D4D4]/20 focus:outline-none focus:border-[#71B8E3]/40 focus:bg-white/[0.06] transition-all duration-300 resize-none"
+                        onBlur={(e) => handleBlur("message", e.target.value)}
+                        onChange={(e) => handleChange("message", e.target.value)}
+                        className={`w-full bg-white/[0.04] border rounded-xl font-sans text-sm text-white placeholder:text-[#D4D4D4]/20 focus:outline-none transition-all duration-300 resize-none ${fieldErrors.message ? 'border-[#f87171]/40 bg-[#f87171]/[0.03] focus:border-[#f87171]/60' : 'border-white/[0.08] focus:border-[#71B8E3]/40 focus:bg-white/[0.06]'}`}
                         style={{ padding: '16px 20px' }}
                       />
+                      <FieldError message={fieldErrors.message} />
                     </div>
-                    {error && (
-                      <p className="font-sans text-sm text-red-400">{error}</p>
-                    )}
+                    <AnimatePresence>
+                      {error && (
+                        <motion.div
+                          initial={{ opacity: 0, y: -6, height: 0 }}
+                          animate={{ opacity: 1, y: 0, height: "auto" }}
+                          exit={{ opacity: 0, y: -6, height: 0 }}
+                          transition={{ duration: 0.2 }}
+                          className="flex items-center gap-2 bg-[#f87171]/[0.06] border border-[#f87171]/20 rounded-xl overflow-hidden"
+                          style={{ padding: '14px 20px' }}
+                        >
+                          <AlertCircle size={16} className="text-[#f87171] shrink-0" />
+                          <span className="font-sans text-sm text-[#f87171]">{error}</span>
+                        </motion.div>
+                      )}
+                    </AnimatePresence>
                     <button
                       type="submit"
                       disabled={loading}

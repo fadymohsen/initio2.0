@@ -35,7 +35,7 @@ const contactInfo: {
   },
 ];
 
-type FieldErrors = Partial<Record<"name" | "email" | "message", string>>;
+type FieldErrors = Partial<Record<"name" | "email" | "subject" | "message", string>>;
 
 function FieldError({ message }: { message?: string }) {
   return (
@@ -65,6 +65,20 @@ export default function ContactPage() {
   const [touched, setTouched] = useState<Record<string, boolean>>({});
   const formRef = useRef<HTMLFormElement>(null);
 
+  const resetForm = useCallback(() => {
+    setSubmitted(false);
+    setFieldErrors({});
+    setTouched({});
+    setError("");
+    formRef.current?.reset();
+  }, []);
+
+  useEffect(() => {
+    if (!submitted) return;
+    const timer = setTimeout(resetForm, 10000);
+    return () => clearTimeout(timer);
+  }, [submitted, resetForm]);
+
   const validateField = (name: string, value: string): string | undefined => {
     switch (name) {
       case "name":
@@ -74,6 +88,9 @@ export default function ContactPage() {
       case "email":
         if (!value.trim()) return "Please enter your email";
         if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value.trim())) return "Please enter a valid email address";
+        return undefined;
+      case "subject":
+        if (!value.trim()) return "Please enter a subject";
         return undefined;
       case "message":
         if (!value.trim()) return "Please enter your message";
@@ -105,11 +122,13 @@ export default function ContactPage() {
     const formData = new FormData(form);
     const name = (formData.get("name") as string) || "";
     const email = (formData.get("email") as string) || "";
+    const subject = (formData.get("subject") as string) || "";
     const message = (formData.get("message") as string) || "";
 
     const errors: FieldErrors = {
       name: validateField("name", name),
       email: validateField("email", email),
+      subject: validateField("subject", subject),
       message: validateField("message", message),
     };
 
@@ -119,7 +138,7 @@ export default function ContactPage() {
     ) as FieldErrors;
 
     setFieldErrors(activeErrors);
-    setTouched({ name: true, email: true, message: true });
+    setTouched({ name: true, email: true, subject: true, message: true });
 
     if (Object.keys(activeErrors).length > 0) return;
 
@@ -132,7 +151,7 @@ export default function ContactPage() {
         body: JSON.stringify({
           name,
           email,
-          subject: formData.get("subject"),
+          subject,
           message,
         }),
       });
@@ -343,16 +362,19 @@ export default function ContactPage() {
                       <FieldError message={fieldErrors.email} />
                     </div>
                     <div className="relative group">
-                      <label className="block font-sans text-[10px] uppercase tracking-[0.3em] text-[#D4D4D4]/40 group-focus-within:text-[#71B8E3]/70 transition-colors duration-300" style={{ marginBottom: '8px' }}>
-                        Subject <span className="normal-case tracking-normal text-[#D4D4D4]/25">(optional)</span>
+                      <label className={`block font-sans text-[10px] uppercase tracking-[0.3em] transition-colors duration-300 ${fieldErrors.subject ? 'text-[#f87171]/80' : 'text-[#D4D4D4]/40 group-focus-within:text-[#71B8E3]/70'}`} style={{ marginBottom: '8px' }}>
+                        Subject
                       </label>
                       <input
                         type="text"
                         name="subject"
                         placeholder="What can we help you with?"
-                        className="w-full bg-white/[0.04] border border-white/[0.08] rounded-xl font-sans text-sm text-white placeholder:text-[#D4D4D4]/20 focus:outline-none focus:border-[#71B8E3]/40 focus:bg-white/[0.06] transition-all duration-300"
+                        onBlur={(e) => handleBlur("subject", e.target.value)}
+                        onChange={(e) => handleChange("subject", e.target.value)}
+                        className={`w-full bg-white/[0.04] border rounded-xl font-sans text-sm text-white placeholder:text-[#D4D4D4]/20 focus:outline-none transition-all duration-300 ${fieldErrors.subject ? 'border-[#f87171]/40 bg-[#f87171]/[0.03] focus:border-[#f87171]/60' : 'border-white/[0.08] focus:border-[#71B8E3]/40 focus:bg-white/[0.06]'}`}
                         style={{ padding: '16px 20px' }}
                       />
+                      <FieldError message={fieldErrors.subject} />
                     </div>
                     <div className="relative group">
                       <label className={`block font-sans text-[10px] uppercase tracking-[0.3em] transition-colors duration-300 ${fieldErrors.message ? 'text-[#f87171]/80' : 'text-[#D4D4D4]/40 group-focus-within:text-[#71B8E3]/70'}`} style={{ marginBottom: '8px' }}>
